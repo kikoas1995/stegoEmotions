@@ -57,20 +57,8 @@ class Bot:
 
         tweet_pic_urls = re.findall('.*src=\"(https:\/\/pbs.twimg\S*)\".*', src_tweet)
         tweet_pic_url = tweet_pic_urls[len(tweet_pic_urls) - 1]
-	return tweet_pic_url
+        return tweet_pic_url
 
-
-keys = ['dS50XnUWaP9hkZ50kQOECosH0', 'Uhaz0nJvHkx0A1Jmn1BPsOUnXB85cGJQDerDjKXa3c1RhJuaEU', '1129797728027009024-rKegP2cSHizSDmPsIUq3XsEDjS1Q7r', 'wcEtIz8acrhSgZOVuMaO3Uv4qqDk4Wbqg1z64FNvxiOC2']
-bot = Bot(keys)
-
-ruta_img = raw_input("Introduce el nombre de la imagen a subir: ")
-txt_del_tweet = raw_input("Introduce el texto del tweet a subir: " )
-
-bot.post_tweet_with_pic(ruta_img, txt_del_tweet)
-
-tweet = bot.get_last_tweet()
-
-tweet_pic = bot.get_pic_url_of_last_tweet(tweet)
 
 
 

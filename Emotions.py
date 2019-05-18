@@ -38,17 +38,6 @@ class Emotions:
             #print(SumaPersona)  
             SumaTotal+=SumaPersona
             i+=1
-        print("Suma de todos las personas = %s" % (SumaTotal))
-
-def main(argv):
-
-    subscription_key = '9ae6243e9d2647b59ecb2e59c0a89c71'
-    image_url = 'https://pbs.twimg.com/media/D6yQLlOWsAARJOt.jpg:large'
-    
-    emotion = Emotions(subscription_key)
-    emotion.getEmotionsSum(image_url)
+        return SumaTotal
 
 
-    
-if __name__ == "__main__":
-   main(sys.argv[1:])
