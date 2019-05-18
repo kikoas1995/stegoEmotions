@@ -60,7 +60,7 @@ class Bot:
 	return tweet_pic_url
 
 
-keys = ['kUplayzkqmkbNVLqaKV0PAEYe', '5Hs7BNxpfaYli6wgh715shqTc1adwu3sVxT59PUFZqnuZbg8H2', '467848144-KXYfHJDS2tCwShXr2ELD0gUD8lXJr1YGv6hVwkEV', 'vW43mCCDox95sPz8OoOMNrY6gAp7iFuFvPbOgnR6WAVAA']
+keys = ['dS50XnUWaP9hkZ50kQOECosH0', 'Uhaz0nJvHkx0A1Jmn1BPsOUnXB85cGJQDerDjKXa3c1RhJuaEU', '1129797728027009024-rKegP2cSHizSDmPsIUq3XsEDjS1Q7r', 'wcEtIz8acrhSgZOVuMaO3Uv4qqDk4Wbqg1z64FNvxiOC2']
 bot = Bot(keys)
 
 ruta_img = raw_input("Introduce el nombre de la imagen a subir: ")
