@@ -19,35 +19,46 @@ class Bot:
             if not self.client.verify_credentials():
                 raise tweepy.TweepError
         except tweepy.TweepError as e:
-            print('ERROR : Conexion fallada')
+            print 'There was an error: ',e[0][0]['message'], 'Error code:',e[0][0]['code']
+            exit(0)
         else:
-            print('Conectado como @{}'.format(self.client.me().screen_name))
+            print('Connected as @{}'.format(self.client.me().screen_name))
             self.client_id = self.client.me().id
 
-    def post_tweet_with_pic(self, ruta_img, txt_del_tweet):
+    def post_tweet(self, img_path, text_to_tweet):
         CONSUMER_KEY = self._consumer_key
         CONSUMER_SECRET = self._consumer_secret
         OAUTH_TOKEN = self._access_token
         OAUTH_TOKEN_SECRET = self._access_secret
 
-        # Creamos el objeto de API de twitter
+        # Twitter API object creation
         twyapi = Twython(CONSUMER_KEY,CONSUMER_SECRET,OAUTH_TOKEN,OAUTH_TOKEN_SECRET)
 
-        #Enviamos el tweet 
+        try:
+            if (img_path=="noPIC"):
+                response = twyapi.update_status(status=text_to_tweet)
+            else:
+                # Uploading image
+                image = open(img_path, 'rb')
+                media_uploaded = twyapi.upload_media(media=image)
+                media_id = media_uploaded['media_id']
 
-        imagen = open(ruta_img, 'rb')
-        media_uploaded = twyapi.upload_media(media=imagen)
-        media_id = media_uploaded['media_id']
+                # Posting the tweet
+                response = twyapi.update_status(status=text_to_tweet, media_ids=media_id)
+        except:
+            print "An error occurred while posting the tweet."
+            exit(-1)
 
-        # Subimos la imagen
-        response = twyapi.update_status(status= txt_del_tweet, media_ids=media_uploaded['media_id'])
 
-    def get_last_tweet(self):
+    def get_tweet_in_position(self, position):
 
-        tweet = self.client.user_timeline(id = self.client_id, count = 1)[0]
+        if position=="lastTweet":
+            tweet = self.client.user_timeline(id = self.client_id, count = 1)[0]
+        else:
+            tweet = self.client.user_timeline(id=self.client_id, count=2)[1]
         return tweet.text
 
-    def get_pic_url_of_last_tweet(self, tweet):
+    def get_pic_url_of_tweet(self, tweet):
 
         tweet_urls = re.findall(".*\s(\S*)", tweet)
         tweet_link = tweet_urls[len(tweet_urls) - 1]
