@@ -12,8 +12,12 @@ Installation
 pip install requests
 pip install simplejson
 pip install tweepy
-#Previous to install Crypto, you probably need to install Microsoft Visual C++ Compiler for Python 2.7  http://aka.ms/vcpython27
+pip install twython
+
+#Windows: previous to install Crypto, you probably need to install Microsoft Visual C++ Compiler for Python 2.7  http://aka.ms/vcpython27
 easyinstall crypto 
+#Linux:
+pip install pycrypto
 ````
 
 Usage
