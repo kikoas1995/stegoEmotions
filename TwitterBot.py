@@ -66,7 +66,7 @@ class Bot:
         f = urllib.urlopen(tweet_link)
         src_tweet = f.read()
 
-        tweet_pic_urls = re.findall('.*src=\"(https:\/\/pbs.twimg\S*)\".*', src_tweet)
+        tweet_pic_urls = re.findall('src=\"(https:\/\/pbs.twimg\S*)\"', src_tweet)
         tweet_pic_url = tweet_pic_urls[len(tweet_pic_urls) - 1]
         return tweet_pic_url
 
