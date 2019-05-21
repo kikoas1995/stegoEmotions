@@ -2,7 +2,7 @@ StegoEmotions
 =============
 
 
-A steganographic tool to and reveal hide messages in tweets.
+A steganographic tool to hide and reveal messages in tweets.
 
 
 Installation
@@ -15,7 +15,7 @@ pip install tweepy
 pip install twython
 
 #Windows: previous to install Crypto, you probably need to install Microsoft Visual C++ Compiler for Python 2.7  http://aka.ms/vcpython27
-easyinstall crypto 
+easy_install crypto 
 #Linux:
 pip install pycrypto
 ````
